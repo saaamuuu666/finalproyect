@@ -1,0 +1,7 @@
+{
+  "name": "CHAT CLIENTES",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
