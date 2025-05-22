@@ -7,7 +7,7 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonButton
+  IonButton,IonCardContent,IonCardSubtitle,IonCardHeader,IonCardTitle,IonHeader,IonTitle,IonCard,IonToolbar
 } from '@ionic/angular/standalone';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
@@ -16,7 +16,7 @@ import { AuthService } from '@auth0/auth0-angular';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [CommonModule, FormsModule, IonContent, IonInput, IonGrid, IonRow, IonCol, IonButton],
+  imports: [CommonModule, FormsModule, IonContent, IonInput,IonCardSubtitle, IonGrid, IonRow, IonCol, IonButton,IonCardContent,IonCardHeader,IonCardTitle,IonHeader,IonTitle,IonCard,IonToolbar],
 })
 export class HomePage implements OnInit {
 
