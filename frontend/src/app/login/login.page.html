@@ -1,9 +1,46 @@
-<ion-content [fullscreen]="true">
-<div class="login-container">
-  <form class="login-form">
- <ion-button (click)="login()">Log In</ion-button>
-<ion-button (click)="logout()">Log out</ion-button>
-  </form>
-</div>
+<ion-content [fullscreen]="true" class="auth-content">
+  <div class="hero-overlay">
+    <ion-card class="auth-card">
+      <ion-card-header>
+        <ion-card-title class="auth-title">
+          <span class="brand-highlight">BINGO</span>PRO
+        </ion-card-title>
+        <ion-card-subtitle class="auth-subtitle">
+          {{ userEmail ? 'Bienvenido de vuelta' : 'Inicia sesión para continuar' }}
+        </ion-card-subtitle>
+      </ion-card-header>
 
+      <ion-card-content>
+        <div class="user-info" *ngIf="userEmail">
+          <div class="user-email">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            {{ userEmail }}
+          </div>
+        </div>
+
+        <div class="auth-actions">
+          <ion-button 
+            *ngIf="!userEmail"
+            class="auth-button google-button"
+            expand="block" 
+            shape="round"
+            (click)="login()">
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+            Continuar con Google
+          </ion-button>
+
+          <ion-button 
+            *ngIf="userEmail"
+            class="auth-button logout-button"
+            expand="block" 
+            fill="outline"
+            shape="round"
+            (click)="logout()">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            Cerrar sesión
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

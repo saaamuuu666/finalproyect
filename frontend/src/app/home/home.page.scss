@@ -1,37 +1,172 @@
 .home-content {
-  --background: url('https://cdn.pixabay.com/photo/2022/11/17/20/44/bingo-7599040_1280.jpg') no-repeat center center / cover;
-  display: center;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 100%;
-}
+  --background: linear-gradient(45deg, rgba(10, 15, 40, 0.9), rgba(25, 35, 70, 0.8)),
+    url('https://cdn.pixabay.com/photo/2022/11/17/20/44/bingo-7599040_1280.jpg') no-repeat center center/cover;
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.75);
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-  color: #fff;
-  align-items: center;
-  max-width: 90%;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-}
+  .content-wrapper {
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInUp 1s ease;
+  }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #f9d342;
-}
+  .header-section {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    .main-title {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      letter-spacing: 3px;
+      
+      .highlight {
+        color: #FFD700;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+      }
+    }
 
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
-}
+    .tagline {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+  }
 
-ion-button {
-  font-size: 1.1rem;
-  font-weight: 600;
+  .cta-section {
+    ion-button {
+      height: 50px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      margin: 12px 0;
+      --border-radius: 12px;
+    }
+
+    .pulse-button {
+      --background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      --box-shadow: 0 4px 20px rgba(255, 165, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      
+      &:hover {
+        transform: scale(1.03);
+        
+        .button-shine {
+          animation: shine 1.5s;
+        }
+      }
+    }
+
+    .join-button {
+      --color: #fff;
+      --border-color: rgba(255, 255, 255, 0.3);
+      --background-hover: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .features-grid {
+    margin-top: 40px;
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+      }
+      
+      .icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      
+      h3 {
+        color: #FFD700;
+        margin: 10px 0;
+      }
+      
+      p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shine {
+    from {
+      left: -50%;
+    }
+    to {
+      left: 150%;
+    }
+  }
+
+  .button-shine {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+  }
+}
+.floating-button-container {
+  position: fixed; // Usa posición fija
+  top: 16px; // Distancia desde arriba
+  right: 16px; // Distancia desde la derecha
+  z-index: 999; // Asegura que esté por encima de otros elementos
+  
+  .top-right-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    ion-icon {
+      font-size: 1.4em;
+    }
+  }
 }

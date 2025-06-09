@@ -1,13 +1,54 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>game</ion-title>
+    <ion-title>Bingo Game</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">game</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-title>Sala: {{ room }}</ion-title> 
+
+  <div *ngIf="!juegoIniciado">
+    <ion-item>
+      <ion-label position="floating">¿Cuántos cartones? (máx 3)</ion-label>
+      <ion-input type="number" [(ngModel)]="cantidadCartones" min="1" max="3"></ion-input>
+    </ion-item>
+  </div>
+
+ <ion-button id="EP" *ngIf="!juegoIniciado" (click)="startGame()" expand="block">
+  Empezar Partida
+</ion-button>
+
+  <div *ngIf="numeroActual">
+    <h2>Número actual: {{ numeroActual }}</h2>
+  </div>
+
+  <div *ngIf="numerosCantados.length">
+    <h3>Números cantados:</h3>
+    <p id="cantados">{{ numerosCantados.join(', ') }}</p>
+  </div>
+
+  <h3>Cartones:</h3>
+  <div class="cartones-container">
+    <div class="carton-wrapper" *ngFor="let carton of cartones; let i = index">
+      <div class="carton">
+        <div class="fila" *ngFor="let fila of carton">
+          <div
+            class="celda"
+            *ngFor="let celda of fila"
+            [class.tachado]="celda?.tachado"
+            [class.vacia]="!celda"
+            (click)="celda && toggleTachado(celda)"
+          >
+            {{ celda?.numero || '⚪' }}
+          </div>
+        </div>
+      </div>
+      <ion-button expand="block" color="warning" (click)="cantarBingo(i)" [disabled]="mensajesBingo[i] === '🎉 ¡Bingo correcto!'">
+        ¡Cantar Bingo!
+      </ion-button>
+      <ion-text *ngIf="mensajesBingo[i]">
+        <h3>{{ mensajesBingo[i] }}</h3>
+      </ion-text>
+    </div>
+  </div>
 </ion-content>

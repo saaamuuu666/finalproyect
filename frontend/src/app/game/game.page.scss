@@ -1,0 +1,166 @@
+:host {
+  --color-primario: #2c3e50;
+  --color-secundario: #FFD700;
+  --degradado-fondo: linear-gradient(45deg, rgba(16, 36, 94, 0.95), rgba(83, 52, 131, 0.9));
+  display: block;
+  height: 100vh;
+}
+
+ion-content {
+  --background: var(--degradado-fondo);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+ion-header {
+  --background: transparent;
+  color: white;
+  text-align: center;
+}
+
+ion-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--color-secundario);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.carton {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 2px solid var(--color-secundario);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  max-width: 340px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.carton:hover {
+  transform: translateY(-3px);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+}
+
+.celda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--color-secundario);
+  transition: all 0.2s ease;
+}
+
+.celda.tachado {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: var(--color-secundario);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.celda.vacia {
+  background: transparent;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+ion-button {
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+ion-button:hover {
+  transform: scale(1.03);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2em;
+  color: var(--color-secundario);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  margin-top: 1.5rem;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 1rem;
+  color: white;
+}
+
+.numeros-cantados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+
+ion-text h3 {
+  text-align: center;
+  font-size: 1.3em;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+
+#cantados {
+    color: white;
+
+}
+
+ion-text h3.correcto {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+ion-text h3.incorrecto {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+}
+
+
+.cartones-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.carton-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+#EP {
+  margin: 1.5rem auto;
+  display: block;
+  --background: gold;
+  --color: #1a237e;
+}

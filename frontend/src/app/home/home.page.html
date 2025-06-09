@@ -1,10 +1,27 @@
-
 <ion-content [fullscreen]="true" class="home-content">
-  <div class="overlay">
-    <h1 class="title">¡Bienvenido al Bingo Profesional!</h1>
-    <p class="subtitle">Disfruta del mejor bingo online en tiempo real</p>
-    <ion-button expand="block" color="warning" shape="round">
-      🎯 Crear Sala
-    </ion-button>
+  <div class="hero-overlay">
+    <div class="content-wrapper">
+      <div class="header-section">
+        <h1 class="main-title">BINGO<span class="highlight">PRO</span></h1>
+        <p class="tagline">Emoción en cada cartón</p>
+      </div>
+
+      <div class="cta-section">
+        <ion-button class="pulse-button" shape="round" expand="block" color="gold"(click)="crearjuego()" >
+          🚀 Nueva Partida
+          <div class="button-shine"></div>
+        </ion-button>
+        <ion-button class="join-button" fill="outline" expand="block" shape="round" (click)="irsala()">
+          🎮 Unirse a Sala
+        </ion-button>
+      </div>
+
+      <div class="floating-button-container">
+        <ion-button class="top-right-button" fill="solid" shape="round" (click)="logout()">Logout</ion-button>
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+      </div>
+      
+      
+    </div>
   </div>
 </ion-content>

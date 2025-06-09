@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h1>Unirse a una sala</h1>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input 
+              [(ngModel)]="roomCode" 
+              placeholder="Ingresa el código de la sala"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="joinRoom()">Unirse</ion-button>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <h2>Unirse a una sala rápida</h2>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="joinRoom(1)">Sala 1</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="joinRoom(2)">Sala 2</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="joinRoom(3)">Sala 3</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="joinRoom(4)">Sala 4</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
